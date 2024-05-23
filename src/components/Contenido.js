@@ -25,8 +25,6 @@ export default class Contenido extends Component{
                         steps={steps}
                         headerTitle= 'TIBot'
                         botAvatar= {botAvatarTi}
-                        floating = 'false'
-                    
                     />
                 </ThemeProvider>
             </div>)

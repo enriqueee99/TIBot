@@ -7,13 +7,6 @@ const steps = [
     {
         id: 'pregunta-nonbre',
         user: true,
-        /* validator: (value) =>{
-            if(/[A-Z]{1}[a-z]{2,15}/.test(value)){
-                return true
-            } else {
-                return 'por favor escribe un nombre valido'
-            }
-        }, */
         trigger: 'respuesta-nombre'
     },
     {
@@ -33,47 +26,107 @@ const steps = [
         ]
     },
 
+
+
     // ............... botones respuestas de opcion informacion general --------------------
     {  
         id: 'information_response',
         message: '¿Qué tipo de información general necesitas? ',
-        end: true
-    },
-        
+        trigger: 'botoms_information'
+    },   
+        {  //-------  botones de informacion general
+            id: 'botoms_information',
+            options: [
+                {value: '1', label: 'Prácticas pre-profesionales y vinculación con la sociedad', trigger: 'botoms_practice' },
+                {value: '2', label: 'Biblioteca', trigger: 'botoms_library'}
+            ]
+        }, 
+            {   // --------- botones de practicas profesionales
+                id: 'botoms_practice',
+                
+                options: [
+                    {value: '1', label: 'lugares donde puedo aplicar', trigger: ''},
+                    {value: '2',  label: 'Quiero aplicar a un lugar sin convenio', trigger: ''},
+                    {value: '3', label: 'Matrices y documentos', trigger: ''}
+                ]
+
+            },
+
+            {   // --------- botones de biblioteca
+                id: 'botoms_library',
+                
+                options: [
+                    {value: '1', label: '¿Dónde se encuentra la biblioteca?', trigger: ''},
+                    {value: '2',  label: 'Libros digitales', trigger: ''},
+                    {value: '3', label: 'Urkund', trigger: ''}
+                ]
+
+            },
 
 
-      // ............... botones respuestas de opcion informacion admision y matricula --------------------
+
+      // ............... botones respuestas de opcion admision y matricula --------------------
     {
         id: 'admition_response',
-        message: 'escogiste la opcion admision y matricula',
-        end: true
-    },
-
+        message: '¿Necesitas ayuda en admision y matricula?',
+        trigger: 'botoms_admition'
+    },  
+        {  //-------  botones nivel uno admision y matricula
+            id: 'botoms_admition',
+            options: [
+                {value: '1', label: 'Requisitos de ingreso', trigger: '' },
+                {value: '2', label: 'Matriculas para el siguiente semestre', trigger: ''},
+                {value: '3', label: 'Procesos de homologación de materias', trigger: ''},
+                {value: '4', label: 'Segundas matriculas', trigger: ''},
+                {value: '5', label: 'Cambio de curso', trigger: ''},
+                {value: '6', label: 'Posgrado', trigger: ''}
+            ]
+        },
 
 
     // ............... botones respuestas de opcion informacion horarios y clases --------------------
     {
         id:'schedule_response',
-        message: 'escogiste la opcion de horarios y clases',
-        end: true
+        message: '¿Conoces todo acerca de tu horario?',
+        trigger: 'botoms_schedule'
     },
+        {  //-------  botones nivel uno horarios y clase
+            id: 'botoms_schedule',
+            options: [
+                {value: '1', label: '¿Qué materias veré este semestre?', trigger: '' },
+                {value: '2', label: '¿Cómo conocer mi horario?', trigger: ''},
+            ]
+        },
 
 
 
     // ............... botones respuestas de opcion informacion bienestar estudiantil --------------------
     {
         id: 'welfare_response',
-        message: 'escogiste la opcion de bienestar estudiantil',
-        end: true
+        message: '¿Todo bien en bienestar estudiantil ñaño?',
+        trigger: 'botoms_welfare'
     },
+        {  //-------  botones nivel uno bienestar estudiantil
+            id: 'botoms_welfare',
+            options: [
+                {value: '1', label: 'Solicitudes de beca', trigger: '' },
+                {value: '2', label: 'Consultorio médico', trigger: ''},
+            ]
+        },
 
 
         // ............... botones respuestas de opcion informacion otros --------------------
     {
         id: 'others_response',
-        message: 'escogiste la opcion de otros, verá diosito cómo te ayuda pq hasta aqui pienso programar',
-        end: true
-    },
+        message: 'Necesitas información más específica? Escribe al correo de secretaria detallando tu solicitud',
+        trigger: 'botom_others'
+    },  
+        {  // ----------- boton de respuesta de otros ---------------
+            id: 'botom_others',
+            options: [
+                {value: '1', label: 'correo de secretaria', trigger:''}
+            ]
+        }
 
     
   
